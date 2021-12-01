@@ -29,7 +29,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
-    float: right;
+    justify-content: center;
 }
 .box{
     display: flex;
@@ -37,7 +37,6 @@ export default {
     flex-direction: column;
    width:20rem;
     height:22rem;
-  margin: 30px auto;
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;

@@ -34,9 +34,9 @@ export default {
 .conteiner{
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
-  
+  flex-direction: row;  
   float: right;
+  justify-content: center;
 }
 
 </style>

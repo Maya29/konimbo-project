@@ -1,6 +1,6 @@
 <template>
 
-  <h4> <input type="text" v-model="search">חפש לפי מחיר</h4> 
+  <h4> <input type="text" v-model="search">חיפוש</h4> 
   <div class="home" v-if="!isLoading">
         <div class="cat">
     <Categorise
@@ -10,11 +10,11 @@
     />
     </div>
     <div class="pro">
-    <Products :productList="products" :filterProductList="productsByCategory" />
+    <Products :productList="filteredProduct" :filterProductList="productsByCategory" />
     </div>
   </div>
 </template>
-
+ 
 <script>
 import Categorise from "../components/Categorise";
 import axios from "axios";
@@ -53,10 +53,13 @@ export default {
     },
   },
   computed:{
-    filteredPost(){
-      return this.productsByCategory = products.filter((item)=>{return parseInt(item.price) <= parseInt(this.search)})
-      
-    }
+  filteredProduct: function () {
+      var filtering = new RegExp(this.search, "i");
+      return this.products.filter((product) => {
+        return product.title.match(filtering);
+      });
+    },
+
   }
 };
 </script>
